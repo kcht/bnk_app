@@ -1,10 +1,14 @@
 require 'pry'
 class ProgramsController < ApplicationController
+  RESULTS_PER_PAGE = 5
 
   def create
     @program = Program.new(program_params)
-    @program.save!
-    redirect_to @program
+    if @program.save
+      redirect_to @program
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -12,7 +16,7 @@ class ProgramsController < ApplicationController
   end
 
   def index
-    @programs = Program.paginate(:page => params[:page], :per_page => 1)
+    @programs = Program.paginate(:page => params[:page], :per_page => RESULTS_PER_PAGE)
   end
 
   private
