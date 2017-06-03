@@ -1,0 +1,18 @@
+<h1>All BNK programs</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Date</th>
+    <th>Name</th>
+  </tr>
+
+  <% @programs.each do |program| %>
+      <tr>
+        <td><%= program.number %></td>
+        <td><%= program.date %></td>
+        <td><%= program.name %></td>
+        <td><%= link_to 'Show', program_path(program) %></td>
+      </tr>
+  <% end %>
+</table>

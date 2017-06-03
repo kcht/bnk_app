@@ -1,9 +1,23 @@
+require 'pry'
 class ProgramsController < ApplicationController
-  def new
-    Program.new
+
+  def create
+    @program = Program.new(program_params)
+    @program.save!
+    redirect_to @program
   end
 
-  def request_params
+  def show
+    @program = Program.find(params[:id])
+  end
 
+  def index
+    @programs = Program.all
+  end
+
+  private
+
+  def program_params
+    params.require(:program).permit(:number, :name, :date, :description)
   end
 end
