@@ -1,0 +1,21 @@
+<h1> BNK <%= "##{@song.title}" %></h1>
+
+<td><%= link_to 'Delete this song', song_path(@song), method: :delete %></td>
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist %>
+</p><p>
+  <strong>Album:</strong>
+  <%= @song.album %>
+</p>
+<p>
+  <strong>Year:</strong>
+  <%= @song.year %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %>
+<%= link_to 'Back', songs_path(@song) %>

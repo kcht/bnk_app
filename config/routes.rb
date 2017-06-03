@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'index', controller: :index
 
-  resources :programs
+  resources :programs, :songs
 
   root 'index', controller: :index, action: :index
 
