@@ -30,7 +30,9 @@ class ProgramsController < ApplicationController
   end
 
   def index
-    @programs = Program.paginate(:page => params[:page], :per_page => RESULTS_PER_PAGE)
+    @programs = Program.
+        order('number desc').
+        paginate(:page => params[:page], :per_page => RESULTS_PER_PAGE)
   end
 
   private
