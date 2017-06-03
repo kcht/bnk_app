@@ -16,6 +16,7 @@
         <td><%= program.name %></td>
         <td><%= link_to 'Show', program_path(program) %></td>
         <td><%= link_to 'Edit', edit_program_path(program) %></td>
+        <td><%= link_to 'Delete this item', program_path(program), method: :delete %></td>
       </tr>
   <% end %>
 
