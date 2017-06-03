@@ -15,4 +15,8 @@
         <td><%= link_to 'Show', program_path(program) %></td>
       </tr>
   <% end %>
+
 </table>
+<p>
+  <%= will_paginate @programs %>
+</p>

@@ -12,7 +12,7 @@ class ProgramsController < ApplicationController
   end
 
   def index
-    @programs = Program.all
+    @programs = Program.paginate(:page => params[:page], :per_page => 1)
   end
 
   private
