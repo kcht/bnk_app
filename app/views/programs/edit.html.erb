@@ -1,0 +1,41 @@
+<h1>Edit  BNK program <%= "##{@program.number} - #{@program.name}"%></h1>
+<%= form_for(@program) do |f| %>
+
+    <% if @program.try(:errors).try(:any?) %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@program.errors.count, "error") %> prohibited
+            this program from being saved:
+          </h2>
+          <ul>
+            <% @program.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <p>
+      <%= f.label :number %><br>
+      <%= f.text_field :number %>
+    </p>
+
+    <p>
+      <%= f.label :date_aired %><br>
+      <%= f.date_field :date %>
+    </p>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
