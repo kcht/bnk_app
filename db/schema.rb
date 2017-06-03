@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603121750) do
+ActiveRecord::Schema.define(version: 20170603123228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "playlist_infos", force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "song_id"
+    t.integer "playlist_position"
+  end
 
   create_table "programs", force: :cascade do |t|
     t.integer "number"

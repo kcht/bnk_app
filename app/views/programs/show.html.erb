@@ -11,5 +11,27 @@
   <%= @program.description %>
 </p>
 
+<p>
+  <strong>Playlist: </strong>
+<table>
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Year</th>
+  </tr>
+  <% @playlist_items.each do |item| %>
+      <tr>
+        <td><%= item[:playlist_position] %></td>
+        <td><%= item[:title] %></td>
+        <td><%= item[:artist] %></td>
+        <td><%= item[:album] %></td>
+        <td><%= item[:year] %></td>
+      </tr>
+  <% end %>
+</table>
+</p>
+
 <%= link_to 'Edit', edit_program_path(@program) %>
 <%= link_to 'Back', programs_path(@program) %>

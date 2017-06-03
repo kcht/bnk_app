@@ -33,6 +33,7 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
+    @playlist_items = ProgramsHelper.playlist_info(program_number: @program.number)
   end
 
   def index

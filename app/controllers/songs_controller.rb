@@ -4,6 +4,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
+      ProgramsHelper.save_song_to_playlist!(song_id: @song.id, program_number: params[:song][:program_number])
       redirect_to @song
     else
       render 'new'
