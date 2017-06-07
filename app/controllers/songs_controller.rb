@@ -36,8 +36,18 @@ class SongsController < ApplicationController
   end
 
   def index
-    @songs = Song.paginate(:page => params[:page], :per_page => RESULTS_PER_PAGE)
+     @songs = Song.paginate(page: params[:page], per_page: RESULTS_PER_PAGE)
   end
+
+  def songs_database
+    @artists = Song.all.pluck(:artist).uniq.sort
+
+    unless params[:artist].nil?
+      @filtered_songs = Song.where(artist: params[:artist]).pluck(:artist, :title).uniq
+    end
+  end
+
+
 
   private
 

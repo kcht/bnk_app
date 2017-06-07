@@ -1,0 +1,16 @@
+<h1>Songs database</h1>
+<p>
+<% @artists.each do |artist| %>
+      <%= button_to artist, songs_database_path, :class => 'artist-filter-button', :method => :post, :params =>  {artist: artist} %>
+<% end %>
+</p>
+
+<% unless @filtered_songs.nil? %>
+  <p>
+    <%= "W bazie jest #{@filtered_songs.count} utworow artysty #{params[:artist]}:" %>
+    <%= @filtered_songs.each { |song| song } %>
+  </p>
+<% end %>
+<p>
+
+</p>
