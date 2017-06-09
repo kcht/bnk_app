@@ -2,12 +2,10 @@ class ProgramsController < ApplicationController
   RESULTS_PER_PAGE = 5
 
   def create
-    @program = Program.new(program_params)
-    if @program.save
-      redirect_to @program
-    else
-      render 'new'
-    end
+    @program = Program.new(program_params).tap(&:save)
+    redirect_to @program
+  rescue => _e
+    render 'new'
   end
 
   def edit
