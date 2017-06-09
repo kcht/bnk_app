@@ -1,4 +1,3 @@
-require 'pry'
 class ProgramsController < ApplicationController
   RESULTS_PER_PAGE = 5
 
