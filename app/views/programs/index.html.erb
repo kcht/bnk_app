@@ -17,6 +17,8 @@
         <td><%= link_to 'Show', program_path(program) %></td>
         <td><%= link_to 'Edit', edit_program_path(program) %></td>
         <td><%= link_to 'Delete this item', program_path(program), method: :delete %></td>
+        <td>  <%= image_tag program.image_path , size: "70x70"%>
+        </td>
       </tr>
   <% end %>
 

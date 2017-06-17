@@ -56,11 +56,11 @@ namespace :bnk do
         count != 0
     #todo: cleanup this ugly code:P
     if playlist_info_present_in_db
-      @logger.debug("Skipping Playlist info for song_id= #{song.id}, program_id=#{program_id} as it is already present in the db")
+      @logger.debug("Skipping Playlist info for song_id= #{song.id}, program_id=#{program.id} as it is already present in the db")
     else
       playlist_info = PlaylistInfo.new(song_id: song.id, program_id: program.id, playlist_position: position)
       playlist_info.save!
-      @logger.debug("Saving Playlist info for song_id= #{song.id}, program_id=#{program_id}")
+      @logger.debug("Saving Playlist info for song_id= #{song.id}, program_id=#{program.id}")
     end
   end
 
