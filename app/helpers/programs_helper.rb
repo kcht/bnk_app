@@ -1,5 +1,12 @@
 module ProgramsHelper
+  include ActionView::Helpers::UrlHelper
   extend self
+  
+  def display_link_to_podcast(link_to_podcast)
+    return unless link_to_podcast
+    link_to "Posłuchaj podcastu", link_to_podcast
+  end
+
   def playlist_info(program_number:)
     playlist = PlaylistInfo.where(program_id: program_id(program_number))
     playlist_items = []

@@ -33,5 +33,9 @@
 </table>
 </p>
 
+<p>
+  <%= ProgramsHelper.display_link_to_podcast @program.link_to_podcast %>
+</p>
+
 <%= link_to 'Edit', edit_program_path(@program) %>
 <%= link_to 'Back', programs_path(@program) %>
