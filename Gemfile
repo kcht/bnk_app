@@ -34,6 +34,7 @@ gem 'will_paginate'
 gem 'paperclip', '~> 4.1.1'
 gem 'factory_girl_rails'
 gem 'database_cleaner'
+gem 'bootstrap-sass'
 
 
 # Use Capistrano for deployment
