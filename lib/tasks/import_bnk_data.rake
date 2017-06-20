@@ -2,6 +2,7 @@ BNK_DATA_PATH = "db/bnk_data"
 
 namespace :bnk do
   @logger = Logger.new(STDOUT)
+  desc 'Import BNK data from files to db'
   task :import_bnk_data => :environment do
 
     Dir.entries(BNK_DATA_PATH).select { |f| f.match(/bnk_/) }.each do |entry|
@@ -41,10 +42,11 @@ namespace :bnk do
         select {|s| s[0] == song.artist && s[1] == song.title}.
         count != 0
 
+
     if present_in_db
       @logger.debug("Skipping song with title= #{song.title}, artist=#{song.artist} as it is already present in the db")
       #playlist info should still be added
-      song = Song.where(artist: song.artist, title: song.title)
+      song = Song.where(artist: song.artist, title: song.title).first
     else
       song.save!
       @logger.debug("Saving song with title= #{song.title}, artist=#{song.artist}")
