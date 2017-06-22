@@ -35,7 +35,7 @@ gem 'paperclip', '~> 4.1.1'
 gem 'factory_girl_rails'
 gem 'database_cleaner'
 gem 'bootstrap-sass'
-
+gem 'bcrypt'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
