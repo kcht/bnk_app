@@ -23,36 +23,35 @@ textarea {
     margin-bottom: 10px;
 }
 
-
 /* typography */
 body {
-  font-family: Verdana, sans-serif;
+    font-family: Verdana, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+    line-height: 1;
 
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 h2 {
-  font-size: 2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
+    font-size: 2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: #777;
 }
 
 p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+    font-size: 1.1em;
+    line-height: 1.7em;
 }
 
 /* sign in button */
@@ -61,16 +60,23 @@ p {
     border: #0197b2;
 
     &:hover {
-        background-color: #023;
-        border: #023;
-    }
+    background-color: #023;
+    border: #023;
+     }
+
+}
+
+.notice {
+    backround: lightgreen;
+    padding: 1.2em;
+    width: 400px;
 }
 
 /* header */
 
 .navbar-nav li a {
     color: white;
-    font-size:15px;
+    font-size: 15px;
 }
 
 #logo {
@@ -82,11 +88,14 @@ p {
     letter-spacing: -1px;
     padding-top: 15px;
     font-weight: bold;
-    &:hover {
-         text-decoration: none;
-         color: #fff;
 
-     }
+&
+:hover {
+    text-decoration: none;
+    color: #fff;
+
+}
+
 }
 
 /* footer */
@@ -120,16 +129,15 @@ footer ul li {
     margin-left: 15px;
 }
 
-
 /* mixins variables etc */
 
 @mixin box_sizing {
-    -moz-box-sizing:    border-box;
+    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    box-sizing:         border-box;
+    box-sizing: border-box;
 }
 
-    /* miscellaneous */
+/* miscellaneous */
 
 .debug_dump {
     clear: both;
@@ -138,3 +146,20 @@ footer ul li {
     margin-top: 45px;
 @include box_sizing;
 }
+
+/* forms */
+#error_explanation {
+    color: red;
+ul {
+    color: red;
+    margin: 0 0 30px 0;
+}
+}
+
+.field_with_errors {
+@extend .has-error;
+.form-control {
+    color: $state-danger-text;
+}
+}
+
