@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'jquery-rails'
+  gem 'jquery-ui-rails', '~> 4.2.1'
 
 end
 
