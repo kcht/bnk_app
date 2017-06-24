@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get '/programs/tag/:tag_id', to: 'programs#index_tags'
+
   resources :programs, :songs
 
   root 'index', controller: :index, action: :index
