@@ -140,6 +140,15 @@ footer ul li {
 @include box_sizing;
 }
 
+div.tag-button {
+    float: left;
+    padding: 10px 10px;
+    background: lightblue;
+    font-size: 15px;
+    margin: 0px 10px;
+}
+
+
 /* forms */
 #error_explanation {
     color: red;
