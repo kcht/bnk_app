@@ -6,8 +6,8 @@ describe 'programs:import_podcast_links' do
     before do
       allow_any_instance_of(Object).to receive(:parse_file) do
         [
-            {number: 1, link: 'xxx'},
-            {number: 2, link: 'xxx'}
+            {number: 1, data: 'xxx'},
+            {number: 2, data: 'xxx'}
         ]
       end
     end
