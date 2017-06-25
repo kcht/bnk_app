@@ -12,4 +12,8 @@ FactoryGirl.define do
         password_confirmation: 'test'
     )
   end
+
+  trait :without_remember_digest do
+    remember_digest nil
+  end
 end

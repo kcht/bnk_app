@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
 
     if password_correct?(user, params[:session][:password])
       log_in(user)
-      flash[:success] = "Successfully logged in"
+      remember(user)
+      flash[:success] = 'Successfully logged in'
       redirect_to user
     else
       flash.now[:danger] = "Invalid password for user #{user.email}" # Not quite right!
@@ -21,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 
