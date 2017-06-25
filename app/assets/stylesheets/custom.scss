@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$primary_color: #0197b2;
+
 /* universal */
 
 body {
@@ -56,7 +58,7 @@ p {
 
 /* sign in button */
 .btn-lg {
-    background-color: #0197b2;
+    background-color: $primary_color;
     border: #0197b2;
 
     &:hover {
@@ -143,9 +145,12 @@ footer ul li {
 div.tag-button {
     float: left;
     padding: 10px 10px;
-    background: lightblue;
+    background: $primary_color;
     font-size: 15px;
     margin: 0px 10px;
+    a {
+        color:white;
+    }
 }
 
 
@@ -164,4 +169,16 @@ ul {
     color: $state-danger-text;
 }
 }
+
+/* dropdowns */
+
+.dropdown-menu {
+    background: black;
+}
+.dropdown-menu > li > a:hover {
+    background: $primary_color;
+}
+
+
+
 
