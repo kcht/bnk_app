@@ -5,6 +5,12 @@ class Program  < ApplicationRecord
   validates :number, presence: true, length: { maximum: 3 }
   validates :name, presence: true, length: { minimum: 5 }
 
+  RESULTS_PER_PAGE = 5
+
+  scope :paginated, -> (page) do
+    order('number desc').paginate(:page => page, :per_page =>  RESULTS_PER_PAGE)
+  end
+
   def image_path
     "bnk_#{bnk_number}.jpg"
   end
