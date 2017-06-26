@@ -20,7 +20,7 @@ namespace :programs do
       end
     end
 
-    puts " Finished! Updated #{count_updated} record(s)."
+    puts " Finished! Updated #{count_updated} #{"record".pluralize(count_updated)}."
   end
 
   desc "Update tags for programs based on file info"
@@ -31,6 +31,7 @@ namespace :programs do
     ActiveRecord::Base.transaction do
       info.each do |info|
         program = Program.where(number: info[:number]).first
+        next unless program
         tags = info[:data]&.split(',')&.map(&:squish)
         tags&.each do |tag|
           if is_program_tag_already_in_db?(program.id, tag)
@@ -45,7 +46,7 @@ namespace :programs do
           end
         end
       end
-      puts " Finished! Updated #{count_updated} #{"program".pluralize(count_updated)}"
+      puts " Finished! Updated #{count_updated} #{"record".pluralize(count_updated)}."
     end
   end
 

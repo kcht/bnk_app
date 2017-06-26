@@ -1,12 +1,10 @@
 FactoryGirl.define do
-  factory :tag do
+  factory :program_tag do
     sequence(:id) {|n| n.to_s}
 
     initialize_with do
       new(
-          id: id,
-          name: 'TEST NAME',
-          description: 'test'
+          id: id
       )
     end
   end
