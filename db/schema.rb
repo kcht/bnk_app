@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20170625193120) do
     t.integer "playlist_position"
   end
 
+  create_table "program_tags", force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "tag_id"
+  end
+
   create_table "programs", force: :cascade do |t|
     t.integer "number"
     t.string "name"
@@ -41,6 +46,11 @@ ActiveRecord::Schema.define(version: 20170625193120) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -50,5 +60,4 @@ ActiveRecord::Schema.define(version: 20170625193120) do
     t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
-
 end

@@ -1,5 +1,4 @@
 class ProgramsController < ApplicationController
-  RESULTS_PER_PAGE = 5
 
   def create
     @program = Program.new(program_params).tap(&:save)
@@ -34,9 +33,13 @@ class ProgramsController < ApplicationController
   end
 
   def index
-    @programs = Program.
-        order('number desc').
-        paginate(:page => params[:page], :per_page => RESULTS_PER_PAGE)
+    @programs = Program.paginated(params[:page])
+  end
+
+  def index_tags
+    tagged_program_ids = ProgramTag.where(tag: params[:tag_id]).pluck(:program_id)
+    @programs = Program.where(id: tagged_program_ids).paginated(params[:page])
+    render 'index'
   end
 
   private

@@ -1,7 +1,13 @@
-<h1>All BNK programs</h1>
-<p>
+<h1> <%= title_for_program_list %></h1>
+<h2>List all program based on tags: </h2>
+<div>
+<% ProgramsHelper::TAGS.each_with_index do |tag, index| %>
+  <div class="tag-button"> <%= link_to tag, tagged_programs_path(tag_id: index+1) %></div>
+<% end %>
+</div>
+<div>
 <%= link_to 'Create new program', new_program_path %>
-</p>
+</div>
 <table id="hor-minimalist-b">
   <tr>
     <th>Number</th>
