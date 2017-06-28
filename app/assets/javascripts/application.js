@@ -15,4 +15,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap
+//= require react
+//= require react_ujs
+//= require react_bootstrap
+//= require classnames
+//= require components
 //= require_tree .
