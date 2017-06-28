@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'paperclip', '~> 4.1.1'
 gem 'factory_girl_rails'
 gem 'database_cleaner'
@@ -51,7 +52,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'jquery-rails'
   gem 'jquery-ui-rails', '~> 4.2.1'
-
+  gem 'faker'
 end
 
 group :development do

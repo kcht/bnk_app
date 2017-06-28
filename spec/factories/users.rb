@@ -8,12 +8,17 @@ FactoryGirl.define do
           name: 'Test',
           email: 'test@test.pl',
           password: 'test',
-          password_confirmation: 'test'
+          password_confirmation: 'test',
+          admin: false
       )
     end
   end
 
   trait :without_remember_digest do
     remember_digest nil
+  end
+
+  trait :admin do
+    admin true
   end
 end

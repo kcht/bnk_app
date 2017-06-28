@@ -1,4 +1,5 @@
 class ProgramsController < ApplicationController
+  before_action :superuser, only: [:edit, :update, :destroy, :create]
 
   def create
     @program = Program.new(program_params).tap(&:save)
@@ -40,6 +41,10 @@ class ProgramsController < ApplicationController
     tagged_program_ids = ProgramTag.where(tag: params[:tag_id]).pluck(:program_id)
     @programs = Program.where(id: tagged_program_ids).paginated(params[:page])
     render 'index'
+  end
+
+  def superuser
+    redirect_to programs_path unless superuser?
   end
 
   private

@@ -1,4 +1,5 @@
 require 'rails_helper'
+include SessionsHelper
 
 RSpec.describe ProgramsController, type: :controller do
 
@@ -31,6 +32,62 @@ RSpec.describe ProgramsController, type: :controller do
 
       it 'raises an error' do
         expect {subject}.to raise_error ActionController::UrlGenerationError
+      end
+    end
+  end
+
+  describe 'edit' do
+    subject {get :edit, params: {id: 1}}
+    let!(:program) {FactoryGirl.create(:program, id: 1)}
+
+    context 'when user is not logged in' do
+      it 'redirects to index' do
+        expect(subject).to redirect_to :programs
+      end
+    end
+
+    context 'when user is logged in' do
+      before do
+        log_in user
+      end
+
+      context 'when user is admin' do
+        let(:user) {FactoryGirl.create(:user, :admin)}
+
+        it {is_expected.to render_template 'edit'}
+      end
+
+      context 'when user is not admin' do
+        let(:user) {FactoryGirl.create(:user, :not_admin)}
+
+        it {is_expected.to redirect_to :programs }
+      end
+    end
+  end
+
+  describe 'show' do
+    subject {get :show, params: {id: 1}}
+    let!(:program) {FactoryGirl.create(:program, id: 1)}
+
+    context 'when user is not logged in' do
+      it { is_expected.to render 'show' }
+    end
+
+    context 'when user is logged in' do
+      before do
+        log_in user
+      end
+
+      context 'when user is admin' do
+        let(:user) {FactoryGirl.create(:user, :admin)}
+
+        it {is_expected.to render_template 'edit'}
+      end
+
+      context 'when user is not admin' do
+        let(:user) {FactoryGirl.create(:user, :not_admin)}
+
+        it {is_expected.to redirect_to :programs }
       end
     end
   end
