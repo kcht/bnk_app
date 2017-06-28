@@ -1,5 +1,7 @@
 {
   "name": "bnk_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react-datepicker": "^0.48.0"
+  }
 }

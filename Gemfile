@@ -38,6 +38,14 @@ gem 'database_cleaner'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 
+gem "react-rails"
+source "https://rails-assets.org" do
+  gem 'rails-assets-react-date-picker'
+  gem "rails-assets-moment"
+end
+gem 'react-bootstrap-rails'
+gem 'classnames-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
