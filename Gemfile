@@ -45,6 +45,7 @@ source "https://rails-assets.org" do
 end
 gem 'react-bootstrap-rails'
 gem 'classnames-rails'
+gem 'axios_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

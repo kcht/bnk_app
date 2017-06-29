@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get 'users/last', to: 'users#last'
   resources :users
 
   get '/programs/tag/:tag_id', to: 'programs#index_tags', as: 'tagged_programs'
+  post '/xx', to: 'programs#create'
 
   resources :programs, :songs
 

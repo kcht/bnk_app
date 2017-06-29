@@ -7,12 +7,13 @@ class Program  < ApplicationRecord
 
   RESULTS_PER_PAGE = 5
 
-  scope :paginated, -> (page) do
+  scope   :paginated, -> (page) do
     order('number desc').paginate(:page => page, :per_page =>  RESULTS_PER_PAGE)
   end
 
   def image_path
-    "bnk_#{bnk_number}.jpg"
+    path = "bnk_#{bnk_number}.jpg"
+    return Rails.application.assets.find_asset(path).nil? ? "bnk_default.jpg" : path
   end
 
   private

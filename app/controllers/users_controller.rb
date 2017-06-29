@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
   before_action :set_user, only: [:show, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   # GET /users
   # GET /users.json
@@ -64,6 +65,15 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html {redirect_to users_url, notice: 'User was successfully destroyed.'}
       format.json {head :no_content}
+    end
+  end
+
+  def last
+    @user = User.last
+    if @user
+      redirect_to @user
+    else
+      redirect_to users_path
     end
   end
 
