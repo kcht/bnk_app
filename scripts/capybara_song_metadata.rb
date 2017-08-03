@@ -41,7 +41,7 @@ songs_with_metadata = []
 
 begin
   file.each_line do |line|
-    search_query= line.split('.')[-1]
+    search_query= line.split('.')[-1] + ' song'
     fill_in_google_search(search_query)
 
     if album_info_present?

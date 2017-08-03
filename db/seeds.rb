@@ -12,6 +12,8 @@ Tag.where(id: 4, name:'MUZYKA Z...', description: 'W tych odcinkach dominowała 
 Tag.where(id: 5, name:'MOTYW PRZEWODNI', description: 'Audycje z motywem przewodnim - luźno związanym z podróżami').first_or_create
 Tag.where(id: 6, name:'OKOLICZNOŚCIOWE', description: 'Odcinki specjalne na święta, rocznice i inne okazje specjalne').first_or_create
 Tag.where(id: 7, name:'CYKL', description: 'Te audycje były częścią kilkuodcinkowych cykli').first_or_create
+Tag.where(id: 8, name:'SET', description: 'Audycja w formie setu - bez mówienia').first_or_create
+Tag.where(id: 9, name:'RELACJA Z KONCERTU', description: 'Program jest w całości relacją z koncertu').first_or_create
 
 User.create!(name:  "Example User",
              email: "example@user.org",

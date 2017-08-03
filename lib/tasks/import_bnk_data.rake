@@ -8,7 +8,7 @@ namespace :bnk do
     Dir.entries(BNK_DATA_PATH).select { |f| f.match(/bnk_/) }.each do |entry|
 
       file_contents = File.readlines("#{BNK_DATA_PATH}/#{entry}")
-
+      @logger.debug("Analyzing file #{entry}")
       number, name = number_name(file_contents[0])
       date = file_contents[1].strip
       description, song_lines = parse_description_songs(file_contents[2..file_contents.size])

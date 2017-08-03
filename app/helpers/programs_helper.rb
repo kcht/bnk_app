@@ -15,7 +15,9 @@ module ProgramsHelper
           "Muzyka z...",
           "Motyw przewodni",
           "Okolicznościowe",
-          "Cykl"]
+          "Cykl",
+          "Set",
+          "Relacja z koncertu"]
   def current_tag_name
     return if params[:tag_id].nil?
     TAGS[params[:tag_id].to_i - 1]
