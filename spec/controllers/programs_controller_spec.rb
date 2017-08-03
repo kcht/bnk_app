@@ -70,7 +70,7 @@ RSpec.describe ProgramsController, type: :controller do
     let!(:program) {FactoryGirl.create(:program, id: 1)}
 
     context 'when user is not logged in' do
-      it { is_expected.to render 'show' }
+      it { is_expected.to render_template 'show' }
     end
 
     context 'when user is logged in' do
@@ -81,14 +81,33 @@ RSpec.describe ProgramsController, type: :controller do
       context 'when user is admin' do
         let(:user) {FactoryGirl.create(:user, :admin)}
 
-        it {is_expected.to render_template 'edit'}
+        it {is_expected.to render_template 'show'}
       end
 
       context 'when user is not admin' do
         let(:user) {FactoryGirl.create(:user, :not_admin)}
 
-        it {is_expected.to redirect_to :programs }
+        it {is_expected.to render_template 'show' }
       end
+    end
+  end
+
+  describe '#index_all' do
+    subject { get :index_all }
+
+    before do
+      log_in user
+    end
+    context 'when user is admin' do
+      let(:user) {FactoryGirl.create(:user, :admin) }
+
+      it {is_expected.to render_template 'index'}
+    end
+
+    context 'when user is not admin' do
+      let(:user) {FactoryGirl.create(:user, :not_admin)}
+
+      it {is_expected.to redirect_to :programs}
     end
   end
 end

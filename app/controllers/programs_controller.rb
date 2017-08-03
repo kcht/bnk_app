@@ -1,37 +1,14 @@
 class ProgramsController < ApplicationController
-  before_action :superuser, only: [:edit, :update, :destroy]
+  before_action :superuser, only: [:edit, :update, :destroy, :index_all]
 
   # POST /programs
   # POST /programs.json
   def create
-    require 'pry'
-    binding.pry
     @program = Program.new(program_params).tap(&:save)
     redirect_to @program
   rescue => _e
     render 'new'
   end
-
-  # # POST /users
-  # # POST /users.json
-  # def create
-  #   # require 'pry'
-  #   # binding.pry
-  #   @user = User.new(user_params)
-  #
-  #   respond_to do |format|
-  #     if @user.save
-  #       format.html do
-  #         log_in(@user)
-  #         redirect_to @user
-  #       end
-  #       format.json {render :show, status: :created, location: @user}
-  #     else
-  #       format.html {render :new}
-  #       format.json {render json: @user.errors, status: :unprocessable_entity}
-  #     end
-  #   end
-  # end
 
   def edit
     @program = Program.find(params[:id])
@@ -59,7 +36,12 @@ class ProgramsController < ApplicationController
   end
 
   def index
+    @programs = Program.after_premiere.paginated(params[:page])
+  end
+
+  def index_all
     @programs = Program.paginated(params[:page])
+    render 'index'
   end
 
   def index_tags
@@ -68,11 +50,11 @@ class ProgramsController < ApplicationController
     render 'index'
   end
 
+  private
+
   def superuser
     redirect_to programs_path unless superuser?
   end
-
-  private
 
   def program_params
     params.require(:program).permit(:number, :name, :date, :description)

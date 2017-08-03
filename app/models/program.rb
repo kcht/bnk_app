@@ -11,6 +11,8 @@ class Program  < ApplicationRecord
     order('number desc').paginate(:page => page, :per_page =>  RESULTS_PER_PAGE)
   end
 
+  scope :after_premiere, -> { where('date < ? ', Time.now ) }
+
   def image_path
     path = "bnk_#{bnk_number}.jpg"
     return Rails.application.assets.find_asset(path).nil? ? "bnk_default.jpg" : path

@@ -1,5 +1,8 @@
 <h1> <%= title_for_program_list %></h1>
 <h2>List all program based on tags: </h2>
+<% if superuser? %>
+  <%= link_to 'Show all (+ scheduled) programs', all_programs_path %>
+<%end%>
 <div>
 <% ProgramsHelper::TAGS.each_with_index do |tag, index| %>
   <div class="tag-button"> <%= link_to tag, tagged_programs_path(tag_id: index+1) %></div>

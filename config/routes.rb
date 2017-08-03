@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users
 
   get '/programs/tag/:tag_id', to: 'programs#index_tags', as: 'tagged_programs'
+  get '/programs/all', to: 'programs#index_all', as: 'all_programs'
   post '/xx', to: 'programs#create'
 
   resources :programs, :songs

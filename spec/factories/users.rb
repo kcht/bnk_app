@@ -21,4 +21,8 @@ FactoryGirl.define do
   trait :admin do
     admin true
   end
+
+  trait :not_admin do
+    admin false
+  end
 end
