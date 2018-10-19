@@ -1,17 +1,16 @@
-BNK#28: Wielkanocne zgadywanki - set na rozgrzewkę
-2017-04-10
-data: 10.04.2017
-Różne są tradycje wielkanocne, a moją ulubioną jest malowanie okładek płyt na wydmuszkach. Na portalu mlwz.pl co roku odbywa się konkurs z odgadywaniem, jakie to płyty przedstawiają malunki. Tegoroczny konkurs zostanie ogłoszony w Wielką Sobotę,a tymczasem można trochę poćwiczyć zgadywanki na poniższym "archiwalnym" zestawie pisanek -u rozwiązanie w postaci muzycznego setu złożonego z utworów z płyt przedstawionych na pisankach usłyszycie w najbliższej audycji Bilet na Księżyc: 10 kwietnia o 18.00
-Playlist:
-1. And Finally... - Pendragon (Not Of This World, 2001)
-2. Another Day - Dream Theater (Live at the Marquee, 1993)
-3. Owner of the Lonely Heart - Yes (90125, 1983)
-4. He Knows You Know - Marillion (A Script for a Jester's Tear, 1983)
-5. Exogenesis Symphony Pt.2 - Muse (The Resistance, 2009)
-6. Tears in the Rain - Arena (The Visitor, 1998)
-7. Formaldehyde - Phideaux (Doomsday Afternoon, 2007)
-8. Oxygen - Blackfield (Welcome to my DNA, 2011)
-9. Simple Pleasures - Camel (A Nod and a Wink, 2002)
-10. Man of Our Times - Genesis (Duke,, 1980)
-11. Discard Your Fear - Riverside (Love, Fear and the Time Machine, 2015)
-12. Mellom Oss - Kerrs Pink (Mellom Oss, 1981)
+BNKnumber: 28
+title: Wielkanocne zgadywanki; set na rozgrzewkę
+date: 2017-04-10
+description: Różne są tradycje wielkanocne, a moją ulubioną jest malowanie okładek płyt na wydmuszkach: Na portalu mlwz:pl co roku odbywa się konkurs z odgadywaniem, jakie to płyty przedstawiają malunki: Tegoroczny konkurs zostanie ogłoszony w Wielką Sobotę,a tymczasem można trochę poćwiczyć zgadywanki na poniższym "archiwalnym" zestawie pisanek -u rozwiązanie w postaci muzycznego setu złożonego z utworów z płyt przedstawionych na pisankach usłyszycie w najbliższej audycji Bilet na Księżyc: 10 kwietnia o 18:00
+1: And Finally...; Pendragon; Not Of This World; 2001
+2: Another Day; Dream Theater; Live at the Marquee; 1993
+3: Owner of the Lonely Heart; Yes; 90125; 1983
+4: He Knows You Know; Marillion; A Script for a Jester's Tear; 1983
+5: Exogenesis Symphony Pt:2; Muse; The Resistance; 2009
+6: Tears in the Rain; Arena; The Visitor; 1998
+7: Formaldehyde; Phideaux; Doomsday Afternoon; 2007
+8: Oxygen; Blackfield; Welcome to my DNA; 2011
+9: Simple Pleasures; Camel; A Nod and a Wink; 2002
+10: Man of Our Times; Genesis; Duke,; 1980
+11: Discard Your Fear; Riverside; Love, Fear and the Time Machine; 2015
+12: Mellom Oss; Kerrs Pink; Mellom Oss; 1981
