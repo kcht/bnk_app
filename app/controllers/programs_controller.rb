@@ -57,6 +57,6 @@ class ProgramsController < ApplicationController
   end
 
   def program_params
-    params.require(:program).permit(:number, :name, :date, :description)
+    params.require(:program_info).permit(:number, :name, :date, :description)
   end
 end
