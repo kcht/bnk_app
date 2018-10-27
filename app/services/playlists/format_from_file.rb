@@ -45,11 +45,7 @@ module Playlists
       lines.each do |line|
         number = line.split(':').first
         song_info = line.split(':').second.strip
-        split = song_info.split(';')
-        title = split[0].strip
-        artist = split[1].strip
-        album = split[2].strip
-        year = split[3].strip
+        title, artist, album, year = song_info.split(';').map(&:strip)
 
         output << "#{number}. #{title} - #{artist} (#{album}, #{year})"
       end
