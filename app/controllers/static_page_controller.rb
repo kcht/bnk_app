@@ -1,5 +1,6 @@
 class StaticPageController < ApplicationController
   def home
+    @programs = Program.recent
   end
 
   def help

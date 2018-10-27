@@ -12,6 +12,8 @@ class Program  < ApplicationRecord
   end
 
   scope :after_premiere, -> { where('date < ? ', Time.now ) }
+  scope :recent, -> { after_premiere.order('date DESC').first(RESULTS_PER_PAGE) }
+
 
   def image_path
     path = "bnk_#{bnk_number}.jpg"
@@ -21,12 +23,6 @@ class Program  < ApplicationRecord
   private
 
   def bnk_number
-    if number <10
-      return "00#{number}"
-    elsif number <100
-      return "0#{number}"
-    else
-      return number.to_s
-    end
+    number.to_s.rjust(3, '0')
   end
 end
