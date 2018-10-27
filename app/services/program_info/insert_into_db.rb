@@ -18,7 +18,9 @@ module ProgramInfo
             title: playlist_item[:title], artist: playlist_item[:artist],
             album: playlist_item[:album], year: playlist_item[:item]).first_or_create!
 
-        PlaylistInfo.where(song_id: song.id, program_id: program, playlist_position: playlist_item[:number]).first_or_create!
+        PlaylistInfo.where(song_id: song.id, program_id: program).first_or_create do |playlist_info|
+          playlist_info.playlist_position = playlist_item[:number]
+        end
       end
     end
   end
