@@ -1,5 +1,5 @@
-def method_throwing_exception(exception)
-  raise exception unless exception.nil?
+def method_throwing_exception(exception 
+  raise exception unless exception:nil?
   "not return value either"
 rescue IOError => e
   puts "io error"
@@ -13,5 +13,5 @@ ensure
   "not return value"
 end
 
-X = method_throwing_exception(nil)
-puts "x is #{X}"
+X = method_throwing_exception(nil 
+puts "x is number: {X}"

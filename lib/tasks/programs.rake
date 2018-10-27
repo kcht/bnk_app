@@ -36,13 +36,13 @@ namespace :programs do
         tags&.each do |tag|
           if is_program_tag_already_in_db?(program.id, tag)
             if ProgramTag.new(program_id: program.id, tag_id: tag).save!
-              puts "Saved record: program number: #{program.number}, tag: #{tag}"
+              puts "Saved record: program_info number: #{program.number}, tag: #{tag}"
               count_updated += 1
             else
-              puts "Didn't save record: program number: #{program.number}, tag: #{tag}"
+              puts "Didn't save record: program_info number: #{program.number}, tag: #{tag}"
             end
           else
-            puts "Skipping record: program number: #{program.number}, tag: #{tag}. Already in db"
+            puts "Skipping record: program_info number: #{program.number}, tag: #{tag}. Already in db"
           end
         end
       end

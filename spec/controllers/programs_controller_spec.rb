@@ -38,7 +38,7 @@ RSpec.describe ProgramsController, type: :controller do
 
   describe 'edit' do
     subject {get :edit, params: {id: 1}}
-    let!(:program) {FactoryGirl.create(:program, id: 1)}
+    let!(:program_info) {FactoryGirl.create(:program_info, id: 1)}
 
     context 'when user is not logged in' do
       it 'redirects to index' do
@@ -67,7 +67,7 @@ RSpec.describe ProgramsController, type: :controller do
 
   describe 'show' do
     subject {get :show, params: {id: 1}}
-    let!(:program) {FactoryGirl.create(:program, id: 1)}
+    let!(:program_info) {FactoryGirl.create(:program_info, id: 1)}
 
     context 'when user is not logged in' do
       it { is_expected.to render_template 'show' }
