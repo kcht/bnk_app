@@ -15,7 +15,7 @@
   get 'users/last', to: 'users#last'
   resources :users
 
-  get '/programs/tag/:tag_id', to: 'programs#index_tags', as: 'tagged_programs'
+  get '/programs/tag/:tag', to: 'programs#index_tags', as: 'tagged_programs'
   get '/programs/all', to: 'programs#index_all', as: 'all_programs'
   get 'programs/recent', to: 'programs#recent'
   post '/xx', to: 'programs#create'

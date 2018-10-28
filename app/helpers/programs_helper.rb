@@ -10,7 +10,7 @@ module ProgramsHelper
   end
 
   def title_for_program_list
-    tag = Tag.where(id: params[:tag])
+    tag = Tag.where(id: params[:tag]).first
     if tag.present?
       "All programs with tag '#{tag.name}'"
     else
