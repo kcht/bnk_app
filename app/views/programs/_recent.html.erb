@@ -1,6 +1,8 @@
-<h1> Last 5 programs: </h1>
+<div class="recent_programs">
+  <h1> Last 5 programs: </h1>
 
-<% @programs.each do |program| %>
-  <%= link_to image_tag(program.image_path, alt: "BNK logo", height: '200'),
-              program_path(program) %>
-<% end %>
+  <% @programs.each do |program| %>
+    <%= link_to image_tag(program.image_path, alt: "BNK logo", height: '200'),
+                program_path(program) %>
+  <% end %>
+</div>
