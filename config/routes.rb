@@ -20,6 +20,8 @@
   get 'programs/recent', to: 'programs#recent'
   post '/xx', to: 'programs#create'
 
+  get 'mostly_played_artists', to: 'statistics#mostly_played', as: 'mostly_played_artists'
+
   resources :programs, :songs
 
   root 'index', controller: :index, action: :index

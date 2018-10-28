@@ -1,0 +1,17 @@
+<h1> 10 mostly played artists</h1>
+
+<td><%= link_to 'Back', home_path %></td>
+
+<table id="hor-minimalist-bb">
+  <tr>
+    <th>#</th>
+    <th>Artist</th>
+    <th>Number of songs</th>
+  </tr>
+  <% @artists_with_song_count.each_with_index do |artist_with_song_count, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= artist_with_song_count[0] %></td>
+      <td><%= artist_with_song_count[1] %></td>
+  <% end %>
+</table>

@@ -1,5 +1,6 @@
 class Program  < ApplicationRecord
-  has_many :playlist_infos, through: :playlist_infos
+  has_many :playlist_items
+  has_many :songs, through: :playlist_items
   has_many :tags, through: :program_tags
 
   validates :number, presence: true, length: { maximum: 3 }
