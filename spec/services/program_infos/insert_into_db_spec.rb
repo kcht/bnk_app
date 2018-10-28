@@ -36,8 +36,8 @@ RSpec.describe ProgramInfos::InsertIntoDb, type: :service do
         expect {subject}.to change {Song.count}.from(0).to(2)
       end
 
-      it 'creates 2 records in PlaylistInfo' do
-        expect {subject}.to change {PlaylistInfo.count}.from(0).to(2)
+      it 'creates 2 records in PlaylistItem' do
+        expect {subject}.to change {PlaylistItem.count}.from(0).to(2)
       end
     end
 
@@ -45,8 +45,8 @@ RSpec.describe ProgramInfos::InsertIntoDb, type: :service do
       let!(:program) {Program.create!(number: 1, name: 'title', date: '2018-01-01', description: 'description')}
       let!(:song1) {Song.create!(title: 'title', artist: 'artist', album: 'album', year: '2018')}
       let!(:song2) {Song.create!(title: 'title2', artist: 'artist2', album: 'album2', year: '2018')}
-      let!(:playlist_info1) {PlaylistInfo.create!(program_id: program.id, song_id: song1.id, playlist_position: 1)}
-      let!(:playlist_info2) {PlaylistInfo.create!(program_id: program.id, song_id: song2.id, playlist_position: 2)}
+      let!(:playlist_info1) {PlaylistItem.create!(program_id: program.id, song_id: song1.id, playlist_position: 1)}
+      let!(:playlist_info2) {PlaylistItem.create!(program_id: program.id, song_id: song2.id, playlist_position: 2)}
 
       it 'does not create new program record' do
         expect {subject}.not_to change{Program.count}
@@ -56,8 +56,8 @@ RSpec.describe ProgramInfos::InsertIntoDb, type: :service do
         expect {subject}.not_to change{Song.count}
       end
 
-      it 'does not create 2 records in PlaylistInfo' do
-        expect {subject}.not_to change{PlaylistInfo.count}
+      it 'does not create 2 records in PlaylistItem' do
+        expect {subject}.not_to change{PlaylistItem.count}
       end
 
       it 'does not update program record' do
@@ -73,8 +73,8 @@ RSpec.describe ProgramInfos::InsertIntoDb, type: :service do
       let!(:program) {Program.create!(number: 1, name: 'old title', date: '2017-01-01', description: 'old')}
       let!(:song1) {Song.create!(title: 'old', artist: 'old song', album: 'album', year: '2018')}
       let!(:song2) {Song.create!(title: 'title2', artist: 'artist2', album: 'album2', year: '2018')}
-      let!(:playlist_info1) {PlaylistInfo.create!(program_id: program.id, song_id: song1.id, playlist_position: 1)}
-      let!(:playlist_info2) {PlaylistInfo.create!(program_id: program.id, song_id: song2.id, playlist_position: 3)}
+      let!(:playlist_info1) {PlaylistItem.create!(program_id: program.id, song_id: song1.id, playlist_position: 1)}
+      let!(:playlist_info2) {PlaylistItem.create!(program_id: program.id, song_id: song2.id, playlist_position: 3)}
 
       it 'does not new program record' do
         expect {subject}.not_to change{Program.count}
@@ -84,8 +84,8 @@ RSpec.describe ProgramInfos::InsertIntoDb, type: :service do
         expect {subject}.to change{Song.count}.from(2).to(3)
       end
 
-      it 'does not create 2 records in PlaylistInfo' do
-        expect {subject}.to change{PlaylistInfo.count}.from(2).to(3)
+      it 'does not create 2 records in PlaylistItem' do
+        expect {subject}.to change{PlaylistItem.count}.from(2).to(3)
       end
 
       it 'updates program record' do

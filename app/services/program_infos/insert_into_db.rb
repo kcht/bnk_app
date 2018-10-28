@@ -16,10 +16,10 @@ module ProgramInfos
       program_info_hash[:playlist].each do |playlist_item|
         song = Song.where(
             title: playlist_item[:title], artist: playlist_item[:artist],
-            album: playlist_item[:album], year: playlist_item[:year]).first_or_create!
+            album: playlist_item[:album], year: [:year]).first_or_create!
 
-        PlaylistInfo.where(song_id: song.id, program_id: program.id).update_or_create(
-          playlist_position: playlist_item[:number]
+        PlaylistItem.where(song_id: song.id, program_id: program.id).update_or_create(
+          position: playlist_item[:number]
         )
       end
     end

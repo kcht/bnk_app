@@ -1,4 +1,4 @@
-class PlaylistInfo < ApplicationRecord
+class PlaylistItem < ApplicationRecord
   belongs_to :program
   belongs_to :song
 

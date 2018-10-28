@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :program_info do
+  factory :program_infos do
     sequence(:id) {|n| n.to_s}
 
     initialize_with do

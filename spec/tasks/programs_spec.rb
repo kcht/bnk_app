@@ -13,7 +13,7 @@ describe 'programs:import_podcast_links' do
     end
 
     context 'when all records have links' do
-      let!(:program_with_link) {FactoryGirl.create(:program_info, id: 1, link_to_podcast: 'some_link')}
+      let!(:program_with_link) {FactoryGirl.create(:program_infos, id: 1, link_to_podcast: 'some_link')}
 
       it 'should run without errors' do
         expect {task.execute}.not_to raise_error
@@ -25,7 +25,7 @@ describe 'programs:import_podcast_links' do
     end
 
     context 'when some records have empty links' do
-      let!(:program_without_link) {FactoryGirl.create(:program_info, id: 1, link_to_podcast: nil)}
+      let!(:program_without_link) {FactoryGirl.create(:program_infos, id: 1, link_to_podcast: nil)}
 
       it 'should run without errors' do
         expect {task.execute}.not_to raise_error
@@ -112,9 +112,9 @@ describe 'programs:update_program_tags' do
       expect {task.execute}.not_to change {ProgramTag.count}
       expect {task.execute}.to output(/Finished! Updated 0 records.\n/).to_stdout
       expect {task.execute}.to output(
-         /Skipping record: program_info number: 1, tag: 1. Already in db\n/).to_stdout
+         /Skipping record: program_infos number: 1, tag: 1. Already in db\n/).to_stdout
       expect {task.execute}.to output(
-         /Skipping record: program_info number: 2, tag: 3. Already in db\n/).to_stdout
+         /Skipping record: program_infos number: 2, tag: 3. Already in db\n/).to_stdout
     end
   end
 end

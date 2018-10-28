@@ -22,7 +22,7 @@ module Playlists
 
 
     def read_from_file(filename)
-      return Right(ProgramInfo::ReadFromFile.new(file_name: filename).call.value!)
+      return Right(ProgramInfos::ReadFromFile.new(file_name: filename).call.value!)
     end
 
     def format_playlist_output(file_content)
