@@ -9,22 +9,8 @@ module ProgramsHelper
     link_to "Posłuchaj podcastu", link_to_podcast
   end
 
-  TAGS = ["Moje podróże",
-          "Ciekawostki",
-          "Astronomia",
-          "Muzyka z...",
-          "Motyw przewodni",
-          "Okolicznościowe",
-          "Cykl",
-          "Set",
-          "Relacja z koncertu"]
-  def current_tag_name
-    return if params[:tag_id].nil?
-    TAGS[params[:tag_id].to_i - 1]
-  end
-
   def title_for_program_list
-    tag_name = current_tag_name
+    tag_name = Tag.find(params[:tag]).name
     if tag_name
       "All programs with tag '#{tag_name}'"
     else

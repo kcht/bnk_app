@@ -1,15 +1,16 @@
 <h1> <%= title_for_program_list %></h1>
+<%= link_to 'Create new program', new_program_path %>
 <h2>List all program based on tags: </h2>
 <% if superuser? %>
   <%= link_to 'Show all (+ scheduled) programs', all_programs_path %>
 <%end%>
 <div>
-<% ProgramsHelper::TAGS.each_with_index do |tag, index| %>
-  <div class="tag-button"> <%= link_to tag, tagged_programs_path(tag_id: index+1) %></div>
+  <% Tag.all.each do |tag| %>
+    <div class="tag-button"> <%= link_to tag.name, tagged_programs_path(tag: tag) %></div>
 <% end %>
+  <div class="tag-button"> <%= link_to 'ALL', programs_path %></div>
 </div>
 <div>
-<%= link_to 'Create new program', new_program_path %>
 </div>
 <table id="hor-minimalist-b">
   <tr>

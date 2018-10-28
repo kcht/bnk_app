@@ -1,4 +1,4 @@
 class ProgramTag < ApplicationRecord
-  belongs_to :program_info
+  belongs_to :program
   belongs_to :tag
 end

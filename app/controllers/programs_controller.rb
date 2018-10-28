@@ -49,7 +49,7 @@ class ProgramsController < ApplicationController
   end
 
   def index_tags
-    tagged_program_ids = ProgramTag.where(tag: params[:tag_id]).pluck(:program_id)
+    tagged_program_ids = ProgramTag.where(tag: params[:tag]).pluck(:program_id)
     @programs = Program.where(id: tagged_program_ids).paginated(params[:page])
     render 'index'
   end

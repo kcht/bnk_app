@@ -24,35 +24,28 @@ namespace :programs do
   end
 
   desc "Update tags for programs based on file info"
-  task update_program_tags: :environment do
+  task update_tags: :environment do
     info = parse_file(FILE_WITH_PROGRAM_TAG_INFO)
-
-    count_updated = 0
     ActiveRecord::Base.transaction do
       info.each do |info|
         program = Program.where(number: info[:number]).first
         next unless program
-        tags = info[:data]&.split(',')&.map(&:squish)
-        tags&.each do |tag|
-          if is_program_tag_already_in_db?(program.id, tag)
-            if ProgramTag.new(program_id: program.id, tag_id: tag).save!
-              puts "Saved record: program number: #{program.number}, tag: #{tag}"
-              count_updated += 1
-            else
-              puts "Didn't save record: program number: #{program.number}, tag: #{tag}"
-            end
-          else
-            puts "Skipping record: program number: #{program.number}, tag: #{tag}. Already in db"
-          end
+        tag_codes = info[:data]&.split(',')&.map(&:squish)
+        tag_codes&.each do |tag_code|
+          puts "Analyzing program #{program.id}"
+          tag = Tag.find_by!(code: tag_code)
+          puts "Found tag with code #{tag_code}" if tag.present?
+
+          ProgramTag.where(tag_id: tag.id, program_id: program.id).first_or_create!
         end
       end
-      puts " Finished! Updated #{count_updated} #{"record".pluralize(count_updated)}."
+      puts " Finished! Updated program tags."
     end
   end
 
   def parse_file(file)
     file = File.new(file).readlines
-    file.map {|link| {number: link.split('.', 2)[0]&.squish, data: link.split('.', 2)[1]&.squish}}
+    file.map {|link| {number: link.split(':', 2)[0]&.squish, data: link.split(':', 2)[1]&.squish}}
   end
 
   def should_update_podcast_link_for_program?(program, link)

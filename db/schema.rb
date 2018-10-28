@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170628102044) do
   create_table "program_tags", force: :cascade do |t|
     t.integer "program_id"
     t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "programs", force: :cascade do |t|
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170628102044) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.string "code"
     t.string "description"
   end
 
