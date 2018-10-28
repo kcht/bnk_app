@@ -10,9 +10,9 @@ module ProgramsHelper
   end
 
   def title_for_program_list
-    tag_name = Tag.find(params[:tag]).name
-    if tag_name
-      "All programs with tag '#{tag_name}'"
+    tag = Tag.where(id: params[:tag])
+    if tag.present?
+      "All programs with tag '#{tag.name}'"
     else
       return "All BNK programs"
     end
