@@ -7,14 +7,11 @@ namespace :bnk do
     from_number = ask('Which program number to start with? ') || 1
     to_number = ask('Which program number to finish with? ') || 1000
 
-    binding.pry
-
     (from_number..to_number).each do |program_number|
-      filepath = ProgramInfo::DetermineFilename.new(program_number).call
+      filepath = ProgramInfos::DetermineFilename.new(program_number).call
       puts "Analyzing file #{filepath}..."
-      full_name = "#{BNK_DATA_PATH}/#{filepath}"
-      info_hash = ProgramInfo::ReadFromFile.new(file_name: full_name).call
-      ProgramInfo::InsertIntoDb.new(program_info_hash: info_hash).call
+      info_hash = ProgramInfos::ReadFromFile.new(filepath).call
+      ProgramInfos::InsertIntoDb.new(info_hash).call
 
       puts "Finished analyzing file #{filepath}!"
     end

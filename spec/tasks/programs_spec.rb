@@ -59,8 +59,8 @@ describe 'programs:import_podcast_links' do
 end
 
 describe 'programs:update_program_tags' do
-  let!(:program1) {FactoryGirl.create(:program_info, id: 1)}
-  let!(:program2) {FactoryGirl.create(:program_info, id: 2)}
+  let!(:program1) {FactoryGirl.create(:program_infos, id: 1)}
+  let!(:program2) {FactoryGirl.create(:program_infos, id: 2)}
 
   let!(:tag1) {FactoryGirl.create(:tag, id: 1)}
   let!(:tag2) {FactoryGirl.create(:tag, id: 2)}

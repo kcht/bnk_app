@@ -1,17 +1,17 @@
-module ProgramInfo
+module ProgramInfos
   class ReadFromFile
-    def initialize(file_name:)
-      @file_name = file_name
+    def initialize(filename)
+      @filename = filename
     end
 
-    attr_reader :file_name
+    attr_reader :filename
 
     def call
       read_from_file
     end
 
     def read_from_file
-      file_contents = File.readlines(file_name)
+      file_contents = File.readlines(filename)
 
       {
         number: number(file_contents[0]),
@@ -20,6 +20,8 @@ module ProgramInfo
         description: description(file_contents[3]),
         playlist: playlist_items(file_contents[4..-1])
       }
+    rescue Errno::ENOENT => e
+      raise FileNotFoundError.new('File does not exist')
     end
 
     def number(number_line)

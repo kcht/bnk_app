@@ -5,11 +5,7 @@ RSpec.describe Playlists::FormatFromFile, type: :service do
     subject { described_class.new(number: 1).call }
 
     before do
-      fixtures_path = 'spec/fixtures/files/playlists'
-      stub_const('Playlists::FormatFromFile::BNK_DATA_PATH', fixtures_path)
-      playlist_files = Dir.entries(fixtures_path)
-      allow(Dir).to receive(:entries) { playlist_files }
-      allow(Regexp).to receive(:quote) { filename }
+
     end
 
     context 'for non-existant program' do
