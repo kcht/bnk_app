@@ -6,12 +6,12 @@ module Playlists
 
     BNK_DATA_PATH = "db/bnk_data"
 
-    def initialize(filename)
-      @filename = filename
+    def initialize(number)
+      @filename = ProgramInfos::DetermineFilename.new(number).call
     end
 
     def call
-      Success(filename: filename)
+      Success(filename)
           .bind(method(:read_from_file))
           .bind(method(:format_playlist_output))
     end
@@ -22,7 +22,7 @@ module Playlists
 
 
     def read_from_file(filename)
-      return Right(ProgramInfos::ReadFromFile.new(file_name: filename).call.value!)
+      return Success(ProgramInfos::ReadFromFile.new(filename).call)
     end
 
     def format_playlist_output(file_content)

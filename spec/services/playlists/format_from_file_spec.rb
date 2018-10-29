@@ -5,23 +5,19 @@ RSpec.describe Playlists::FormatFromFile, type: :service do
     subject { described_class.new(number: 1).call }
 
     before do
-
+      allow_any_instance_of(ProgramInfos::DetermineFilename).to receive(:call).and_return(filename)
     end
 
-    context 'for non-existant program' do
-      let(:filename) { 'xxxxxxx' }
+    context 'for non-existent program' do
+      let(:filename) { 'spec/fixtures/files/playlists/xxxxxxx' }
 
       it { is_expected.to be_failure }
-
-      it 'returns failure for non-existent file' do
-        expect(subject.failure).to eq('file doesnt exist')
-      end
     end
 
 
     context 'when file exists' do
       context 'for too many semicolons' do
-        let(:filename) { 'additional_semicolons' }
+        let(:filename) { 'spec/fixtures/files/playlists/additional_semicolons' }
 
         it 'is successful nonetheless' do
           songs = subject.value!
@@ -30,7 +26,7 @@ RSpec.describe Playlists::FormatFromFile, type: :service do
       end
 
       context 'for empty basic info' do
-        let(:filename) { 'empty_basic_info' }
+        let(:filename) { 'spec/fixtures/files/playlists/empty_basic_info' }
 
         it 'is successful nonetheless' do
           songs = subject.value!
@@ -39,7 +35,7 @@ RSpec.describe Playlists::FormatFromFile, type: :service do
       end
 
       context 'for empty playlist' do
-        let(:filename) { 'empty_playlist' }
+        let(:filename) { 'spec/fixtures/files/playlists/empty_playlist' }
 
         it 'is successful nonetheless' do
           songs = subject.value!
@@ -48,7 +44,7 @@ RSpec.describe Playlists::FormatFromFile, type: :service do
       end
 
       context 'for missing colons after number' do
-        let(:filename) { 'empty_basic_info' }
+        let(:filename) { 'spec/fixtures/files/playlists/empty_basic_info' }
 
         it 'is successful nonetheless' do
           songs = subject.value!
@@ -57,7 +53,7 @@ RSpec.describe Playlists::FormatFromFile, type: :service do
       end
 
       context 'for missing numbers' do
-        let(:filename) { 'missing_numbers' }
+        let(:filename) { 'spec/fixtures/files/playlists/missing_numbers' }
 
         it 'is successful nonetheless but returns empty playlist' do
           songs = subject.value!
@@ -66,7 +62,7 @@ RSpec.describe Playlists::FormatFromFile, type: :service do
       end
 
       context 'for well-formatted file' do
-        let(:filename) { 'ok_number_one_three_entries' }
+        let(:filename) { 'spec/fixtures/files/playlists/ok_number_one_three_entries' }
 
         it 'is successful nonetheless' do
           songs = subject.value!
