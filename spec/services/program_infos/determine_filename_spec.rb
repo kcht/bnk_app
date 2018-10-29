@@ -5,7 +5,7 @@ RSpec.describe ProgramInfos::DetermineFilename, type: :service do
     subject { described_class.new(program_number).call }
 
     before do
-      fixtures_path = 'spec/fixtures/files/determine_filename'
+      fixtures_path = 'spec/fixtures/files/determine_filename/'
       stub_const('ProgramInfos::DetermineFilename::BNK_DATA_PATH', fixtures_path)
     end
 
