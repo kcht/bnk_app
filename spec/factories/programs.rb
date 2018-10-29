@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :program_infos do
     sequence(:id) {|n| n.to_s}
 

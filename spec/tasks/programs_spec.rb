@@ -13,7 +13,7 @@ describe 'programs:import_podcast_links' do
     end
 
     context 'when all records have links' do
-      let!(:program_with_link) {FactoryGirl.create(:program_infos, id: 1, link_to_podcast: 'some_link')}
+      let!(:program_with_link) {FactoryBot.create(:program_infos, id: 1, link_to_podcast: 'some_link')}
 
       it 'should run without errors' do
         expect {task.execute}.not_to raise_error
@@ -25,7 +25,7 @@ describe 'programs:import_podcast_links' do
     end
 
     context 'when some records have empty links' do
-      let!(:program_without_link) {FactoryGirl.create(:program_infos, id: 1, link_to_podcast: nil)}
+      let!(:program_without_link) {FactoryBot.create(:program_infos, id: 1, link_to_podcast: nil)}
 
       it 'should run without errors' do
         expect {task.execute}.not_to raise_error
@@ -59,12 +59,12 @@ describe 'programs:import_podcast_links' do
 end
 
 describe 'programs:update_program_tags' do
-  let!(:program1) {FactoryGirl.create(:program_infos, id: 1)}
-  let!(:program2) {FactoryGirl.create(:program_infos, id: 2)}
+  let!(:program1) {FactoryBot.create(:program_infos, id: 1)}
+  let!(:program2) {FactoryBot.create(:program_infos, id: 2)}
 
-  let!(:tag1) {FactoryGirl.create(:tag, id: 1)}
-  let!(:tag2) {FactoryGirl.create(:tag, id: 2)}
-  let!(:tag3) {FactoryGirl.create(:tag, id: 3)}
+  let!(:tag1) {FactoryBot.create(:tag, id: 1)}
+  let!(:tag2) {FactoryBot.create(:tag, id: 2)}
+  let!(:tag3) {FactoryBot.create(:tag, id: 3)}
 
   context 'when all tags are valid' do
     before do
@@ -104,8 +104,8 @@ describe 'programs:update_program_tags' do
             {number: 2, data: '3'}
         ]
       end
-      FactoryGirl.create(:program_tag, program_id: program1.id, tag_id: tag1.id)
-      FactoryGirl.create(:program_tag, program_id: program2.id, tag_id: tag3.id)
+      FactoryBot.create(:program_tag, program_id: program1.id, tag_id: tag1.id)
+      FactoryBot.create(:program_tag, program_id: program2.id, tag_id: tag3.id)
     end
 
     it 'expect to raise an error' do

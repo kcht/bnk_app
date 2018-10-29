@@ -2,7 +2,7 @@ require 'active_support'
 require 'active_record'
 require 'database_cleaner'
 
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 require_relative '../models/../app/models/application_record'
 require_relative '../app/models/program'
 RSpec.configure do |config|

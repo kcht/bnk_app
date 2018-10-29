@@ -3,7 +3,7 @@ require 'pry'
 RSpec.describe "UserLogins", type: :request do
   describe "GET /login" do
     before do
-      FactoryGirl.create(:user, email: 'x@x.pl', password: 'test', password_confirmation: 'test')
+      FactoryBot.create(:user, email: 'x@x.pl', password: 'test', password_confirmation: 'test')
     end
 
 

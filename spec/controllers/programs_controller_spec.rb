@@ -38,7 +38,7 @@ RSpec.describe ProgramsController, type: :controller do
 
   describe 'edit' do
     subject {get :edit, params: {id: 1}}
-    let!(:program_infos) {FactoryGirl.create(:program_infos, id: 1)}
+    let!(:program_infos) {FactoryBot.create(:program_infos, id: 1)}
 
     context 'when user is not logged in' do
       it 'redirects to index' do
@@ -52,13 +52,13 @@ RSpec.describe ProgramsController, type: :controller do
       end
 
       context 'when user is admin' do
-        let(:user) {FactoryGirl.create(:user, :admin)}
+        let(:user) {FactoryBot.create(:user, :admin)}
 
         it {is_expected.to render_template 'edit'}
       end
 
       context 'when user is not admin' do
-        let(:user) {FactoryGirl.create(:user, :not_admin)}
+        let(:user) {FactoryBot.create(:user, :not_admin)}
 
         it {is_expected.to redirect_to :programs }
       end
@@ -67,7 +67,7 @@ RSpec.describe ProgramsController, type: :controller do
 
   describe 'show' do
     subject {get :show, params: {id: 1}}
-    let!(:program_infos) {FactoryGirl.create(:program_infos, id: 1)}
+    let!(:program_infos) {FactoryBot.create(:program_infos, id: 1)}
 
     context 'when user is not logged in' do
       it { is_expected.to render_template 'show' }
@@ -79,13 +79,13 @@ RSpec.describe ProgramsController, type: :controller do
       end
 
       context 'when user is admin' do
-        let(:user) {FactoryGirl.create(:user, :admin)}
+        let(:user) {FactoryBot.create(:user, :admin)}
 
         it {is_expected.to render_template 'show'}
       end
 
       context 'when user is not admin' do
-        let(:user) {FactoryGirl.create(:user, :not_admin)}
+        let(:user) {FactoryBot.create(:user, :not_admin)}
 
         it {is_expected.to render_template 'show' }
       end
@@ -99,13 +99,13 @@ RSpec.describe ProgramsController, type: :controller do
       log_in user
     end
     context 'when user is admin' do
-      let(:user) {FactoryGirl.create(:user, :admin) }
+      let(:user) {FactoryBot.create(:user, :admin) }
 
       it {is_expected.to render_template 'index'}
     end
 
     context 'when user is not admin' do
-      let(:user) {FactoryGirl.create(:user, :not_admin)}
+      let(:user) {FactoryBot.create(:user, :not_admin)}
 
       it {is_expected.to redirect_to :programs}
     end

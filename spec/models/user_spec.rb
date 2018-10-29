@@ -82,7 +82,7 @@ RSpec.describe User, type: :model do
   describe '.authenticated?' do
     subject { user.authenticated?('') }
 
-    let(:user) { FactoryGirl.create(:user, :without_remember_digest)}
+    let(:user) { FactoryBot.create(:user, :without_remember_digest)}
     context 'when token digest is nil for user' do
 
       it { is_expected.to be false}
