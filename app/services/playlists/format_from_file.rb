@@ -34,7 +34,7 @@ module Playlists
         album = song.fetch(:album)
         year = song.fetch(:year)
 
-        output << "#{number}. #{title} - #{artist} (#{album}, #{year})"
+        output << "#{number}. #{artist} - #{title} (#{album}, #{year})"
       end
 
       Success(output)
