@@ -1,0 +1,15 @@
+number: 170
+title: Miłość ponad strachem - powiew zimowych nowości
+date: 2020-02-03
+description: Za oknami wciąż szaro i ciemno, ale muzycznie nie możemy narzekać na muzyczną nudę - w najbliższym odcinku zagramy nowe utwory najczęstszych bywalców w naszym programie, czyli zespołu PENDRAGON. Jeszcze raz sięgniemy też po muzykę DIFFERENT LIGHT z tegorocznej płyty "Binary Suns".
+DEATH AND THE ZOO
+WOT GORILLA
+
+
+
+ZWIERZYNIEC
+kurl -X GET https://z3n-sell-mrhandy-13605bc349.zendesk-staging.com/api/services/staff/80617713/emails
+
+
+kurl -X POST https://z3n-sell-mrhandy-13605bc349.zendesk-staging.com/api/services/staff/80617713/emails -d '{"email": {"value": "kch5test@mrhandy.z3nmail.com",  "is_verified": true, "staff_id": 80617713 } }' -H "X-Zendesk-Internal-User:80623513"
+kurl -X PATCH https://z3n-sell-mrhandy-13605bc349.zendesk-staging.com/api/services/staff/77157474/emails/62737643 -d '{"id": 62737643, "email": {"is_verified": false }, "staff_id": 77157474 }' -H "X-Zendesk-Internal-User:80623513"
