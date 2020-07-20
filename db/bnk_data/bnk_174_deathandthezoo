@@ -4,12 +4,21 @@ date: 2020-02-03
 description: Za oknami wciąż szaro i ciemno, ale muzycznie nie możemy narzekać na muzyczną nudę - w najbliższym odcinku zagramy nowe utwory najczęstszych bywalców w naszym programie, czyli zespołu PENDRAGON. Jeszcze raz sięgniemy też po muzykę DIFFERENT LIGHT z tegorocznej płyty "Binary Suns".
 DEATH AND THE ZOO
 WOT GORILLA
+MONKEY 3
+PIGS
+GIRAFFE
+CAMEL
 
+
+The song was released as a single in the US on March 2, 1964, with "There's a Place" as its B-side.Odcinek #174: Dzień starocia
+                                                                                                   Premiera: 2.03.2020 godzina 18:00 rockserwis.fm
+                                                                                                   Dzisiaj obchodzimy dzień starocia - z tej okazji możecie dzisiaj spodziewać się pięknych nagrań sprzed lat. Za nami także 29 lutego, dzień w którym rocznicę założenia obchodzi holenderski zespół LEAP DAY, tak więc jako  przeciwwagę do starego prog rocka, zagramy też kilka nagrań tego neoprogresywnego zespołu. Zapraszamy!
 
 
 ZWIERZYNIEC
-kurl -X GET https://z3n-sell-mrhandy-13605bc349.zendesk-staging.com/api/services/staff/80617713/emails
+kurl -X GET https://kch-dpd.zendesk-staging.com/api/services/staff/
+kurl -X GET https://demosell.zendesk.com/api/services/staff/
 
 
 kurl -X POST https://z3n-sell-mrhandy-13605bc349.zendesk-staging.com/api/services/staff/80617713/emails -d '{"email": {"value": "kch5test@mrhandy.z3nmail.com",  "is_verified": true, "staff_id": 80617713 } }' -H "X-Zendesk-Internal-User:80623513"
-kurl -X PATCH https://z3n-sell-mrhandy-13605bc349.zendesk-staging.com/api/services/staff/77157474/emails/62737643 -d '{"id": 62737643, "email": {"is_verified": false }, "staff_id": 77157474 }' -H "X-Zendesk-Internal-User:80623513"
+kurl -X PATCH https://z3n-sell-mrhandy-13605bc349.zendesk-staging.com/api/services/staff/77157474/emails/62737643 -d '{"id": 62737643, "email": {"is_verified": false }, "staff_id": 77157474 }' -H "X-Zendesk-Internal-User:80623513

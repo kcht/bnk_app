@@ -24,6 +24,8 @@ gem 'database_cleaner'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'dry-monads'
+gem 'spotify-client'
+
 
 gem "react-rails"
 source "https://rails-assets.org" do
