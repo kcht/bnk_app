@@ -3,7 +3,7 @@ module MySpotify
     def initialize
       # Sample configuration:
       config = {
-        :access_token => 'BQDhKE68vilRlOvvkhPSY2saZ5LHLF_XTxfo-MgBY7jCaXBJYqNOaQtvSeIwujrresY3CscPAejRsun3Leex_oBNuTyofFZLGxQtBPqBitSC6BIJ38nF7NYpXqi2aTplnHH0bP9CTKmyBGakHW1IwZXrVVooAzwKYnIxubTjgZfXWFnK5YeqGx8stDAEjNJX7E4fIEmGYX1FWH1ALiT0EDB0EOcNYp1hTItwYWzGiJk_ocpOkHM14gU9q_L-8048',
+        :access_token => 'BQCSx8ql4fkui73Yb4K6m2ae3hjdCyMCSGES1L4OoMgjSCrIOvmNyTIp_8tnPYj9Q62JHx2Nr6ZvCX5M05Zxx6tu0rMueaFxp494y44Mw5xIrFWtQ2IxBWh66u89dku-1NXBufcEptg9QaR4oLr3LwJVZ2DXKG5z1DYJzfUDQLvTV-XewqPdzAuIcbgQX67KSpoLirkOVsqpqrfLtGKmaKiZFDpXj5kjcEhq5WErYuAW3vCvuIcjlfi07pJr7LPy',
         :raise_errors => true, # choose between returning false or raising a proper exception when API calls fails
 
         # Connection properties
@@ -12,7 +12,11 @@ module MySpotify
         :write_timeout => 10, # set longer write_timeout, default is 10 seconds
         :persistent => false # when true, make multiple requests calls using a single persistent connection. Use +close_connection+ method on the client to manually clean up sockets
       }
-      @client = Spotify::Client.new(config)
+      client = Spotify::Client.new(config)
+    end
+
+    def search(query:, type: :track, limit: 100)
+      client.search(type, query, )
     end
 
     def search(title, artist)
