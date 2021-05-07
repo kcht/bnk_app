@@ -12,7 +12,11 @@ module MySpotify
         :write_timeout => 10, # set longer write_timeout, default is 10 seconds
         :persistent => false # when true, make multiple requests calls using a single persistent connection. Use +close_connection+ method on the client to manually clean up sockets
       }
-      client = Spotify::Client.new(config)
+      @client = Spotify::Client.new(config)
+    end
+
+    def client
+      @client
     end
 
     def search(query:, type: :track, limit: 100)
@@ -36,6 +40,7 @@ module MySpotify
     end
 
     MEGACZART_ID ='2Cs4z17cQY3H0FddDIhUGi'
+    TICKET_TO_THE_MOON_ID = ''
     MY_ID= 's21y2foel7lpot2ev53fx5s2zq'
 
     def add_to_playlist(title, artist)
