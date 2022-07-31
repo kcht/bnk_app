@@ -3,8 +3,8 @@ module MySpotify
     def initialize
       # Sample configuration:
       config = {
-        :access_token => 'BQCSx8ql4fkui73Yb4K6m2ae3hjdCyMCSGES1L4OoMgjSCrIOvmNyTIp_8tnPYj9Q62JHx2Nr6ZvCX5M05Zxx6tu0rMueaFxp494y44Mw5xIrFWtQ2IxBWh66u89dku-1NXBufcEptg9QaR4oLr3LwJVZ2DXKG5z1DYJzfUDQLvTV-XewqPdzAuIcbgQX67KSpoLirkOVsqpqrfLtGKmaKiZFDpXj5kjcEhq5WErYuAW3vCvuIcjlfi07pJr7LPy',
-        :raise_errors => true, # choose between returning false or raising a proper exception when API calls fails
+        :access_token => ''
+       :raise_errors => true, # choose between returning false or raising a proper exception when API calls fails
 
         # Connection properties
         :retries => 0, # automatically retry a certain number of times before returning
