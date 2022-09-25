@@ -2,7 +2,7 @@ module MySpotify
   class PlaylistPopulator
     MEGACZART_ID ='2Cs4z17cQY3H0FddDIhUGi'
     TICKET_TO_THE_MOON_PLAYLIST_ID = '2HxzdxNw4YkWFYneLbcEGt'
-    SAMPLE_PLAYLIST_ID = '4Rii88DBi7hIxmoWBh0tjp'
+    SAMPLE_PLAYLIST_ID = '2nvmhLJ7NIKkYe1VQKMqEH'
 
     USER_ID = 's21y2foel7lpot2ev53fx5s2zq'
 
@@ -15,11 +15,8 @@ module MySpotify
       binding.pry
       spotify_client =  MySpotify::MySpotifyClient.new
       song_list.each do |song|
-        results = spotify_client.search(:track, song)
-        @items = results["tracks"]["items"]
-        uri = @items.first["uri"]
 
-        client.add_user_tracks_to_playlist(USER_ID, SAMPLE_PLAYLIST_ID, [uri])
+        client.add_user_tracks_to_playlist(USER_ID, SAMPLE_PLAYLIST_ID, uris)
         puts "Added #{song}"
       rescue => e
 

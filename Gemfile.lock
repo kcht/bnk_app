@@ -94,7 +94,7 @@ GEM
       dry-core (~> 0.4, >= 0.4.4)
       dry-equalizer
     erubi (1.7.1)
-    excon (0.73.0)
+    excon (0.92.4)
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
@@ -245,8 +245,6 @@ GEM
     selenium-webdriver (3.14.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
-    spotify-client (0.0.10)
-      excon (~> 0.37)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -299,6 +297,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   dry-monads
+  excon
   factory_bot_rails
   faker
   jbuilder (~> 2.5)
@@ -318,7 +317,6 @@ DEPENDENCIES
   rspotify
   sass-rails (~> 5.0)
   selenium-webdriver
-  spotify-client
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

@@ -9,6 +9,6 @@ config = {
   :write_timeout => 10,   # set longer write_timeout, default is 10 seconds
   :persistent    => false # when true, make multiple requests calls using a single persistent connection. Use +close_connection+ method on the client to manually clean up sockets
 }
-client = Spotify::Client.new(config)
-# or with default options:
-client = Spotify::Client.new
+# client = Spotify::Client.new(config)
+# # or with default options:
+# client = Spotify::Client.new

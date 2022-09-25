@@ -16,10 +16,28 @@ module Playlists
           .bind(method(:format_playlist_output))
     end
 
+    def populate_playlist
+      Success(filename)
+        .bind(method(:read_from_file))
+        .bind(method(:populate))
+    end
+
     private
 
     attr_reader :filename
 
+    def populate(file_content)
+      client = MySpotify::MySpotifyClient.new
+
+      file_content[:playlist].each do |song|
+        title = song.fetch(:title)
+        artist = song.fetch(:artist)
+
+        client.add_to_playlist(title, artist)
+      end
+
+
+    end
 
     def read_from_file(filename)
       return Success(ProgramInfos::ReadFromFile.new(filename).call)

@@ -12,18 +12,84 @@ module MySpotify
         :write_timeout => 10, # set longer write_timeout, default is 10 seconds
         :persistent => false # when true, make multiple requests calls using a single persistent connection. Use +close_connection+ method on the client to manually clean up sockets
       }
-      @client = Spotify::Client.new(config)
+      @client = Spotify::Client2.new(config)
     end
 
     def client
       @client
     end
 
-    def search(query:, type: :track, limit: 100)
-      client.search(type, query, )
+    # USAGE
+    # sc = MySpotify::MySpotifyClient.new
+    # uris = sc.search_by_keyword(keyword: "Dive")
+    # sc.add_to_playlist_by_uris(uris) # do 2021-12-31
+
+
+    def search_by_keyword(keyword:, accepted_genres: nil, type: :track, limit: 100)
+      accepted_genres = ["rock",
+                         "progressive rock",
+                         "new wave",
+                         "album rock",
+                         "art rock",
+                         "canterbury scene",
+                         "flute rock",
+                         "jazz fusion",
+                         "symphonic rock",
+                         "classic rock",
+                         "mellow gold",
+                         "soft rock",
+                         "permanent wave",
+                         "uk post-punk",
+                         "beatlesque",
+                         "folk rock",
+                         "glam rock",
+                         "compositional ambient",
+                         "dream pop",
+                         "ethereal wave",
+                         "icelandic rock",
+                         "melancholia",
+                         "nordic post-rock",
+                         "post-rock",
+                         "neo classical metal",
+                         "progressive metal",
+                         "yacht rock",
+                         "europop",
+                         "swedish pop",
+                         "glam metal",
+                         "hard rock",
+                         "swedish hard rock",
+                         "swedish melodic rock",
+                         "deep progressive rock",
+                         "neo-progressive",
+                         "norwegian prog",
+                         "power metal",
+                         "new romantic",
+                         "new wave pop",
+                         "sophisti-pop",
+                         "synthpop"]
+
+
+      binding.pry
+      songs_to_add = []
+      (0..5).each do |i|
+        offset = i * 50
+
+        list = client.search(:track, keyword, limit: 50, offset: offset)
+        list["tracks"]["items"].each do |item|
+          artist_id = item["album"]["artists"].first["id"]
+          artists_genres = client.artists(artist_id)["artists"].first["genres"]
+          common_genres = artists_genres & accepted_genres
+          songs_to_add << item["uri"] unless common_genres.empty?
+        end
+      end
+
+        songs_to_add
     end
 
-    def search(title, artist)
+
+    def search_song(title, artist)
+      binding.pry
+
       @search_term = search_term(title, artist)
       results = client.search(:track, @search_term)
 
@@ -40,13 +106,25 @@ module MySpotify
     end
 
     MEGACZART_ID ='2Cs4z17cQY3H0FddDIhUGi'
-    TICKET_TO_THE_MOON_ID = ''
+    TICKET_TO_THE_MOON_ID = '2HxzdxNw4YkWFYneLbcEGt'
     MY_ID= 's21y2foel7lpot2ev53fx5s2zq'
+    SAMPLE_PLAYLIST_ID = '2nvmhLJ7NIKkYe1VQKMqEH'
+
+    def add_to_playlist_by_uris(uris, playlist_id: SAMPLE_PLAYLIST_ID)
+      uris.each do |uri|
+        sleep(1)
+        client.add_user_tracks_to_playlist(MY_ID, playlist_id, uri)
+        puts '.'
+      end
+
+    end
+
 
     def add_to_playlist(title, artist)
-      uri = search(title, artist)
+      uri = search_song(title, artist)
+      binding.pry
       uris = [uri]
-      client.add_user_tracks_to_playlist(MY_ID, MEGACZART_ID, uris)
+      client.add_user_tracks_to_playlist(MY_ID, TICKET_TO_THE_MOON_ID, uris)
       puts "Added #{title}, #{artist}"
     rescue => e
 
