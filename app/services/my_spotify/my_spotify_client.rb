@@ -69,7 +69,6 @@ module MySpotify
                          "synthpop"]
 
 
-      binding.pry
       songs_to_add = []
       (0..5).each do |i|
         offset = i * 50
@@ -77,7 +76,7 @@ module MySpotify
         list = client.search(:track, keyword, limit: 50, offset: offset)
         list["tracks"]["items"].each do |item|
           artist_id = item["album"]["artists"].first["id"]
-          artists_genres = client.artists(artist_id)["artists"].first["genres"]
+          artists_genres = clien  t.artists(artist_id)["artists"].first["genres"]
           common_genres = artists_genres & accepted_genres
           songs_to_add << item["uri"] unless common_genres.empty?
         end
